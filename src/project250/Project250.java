@@ -41,7 +41,6 @@ public class Project250 extends Application {
     private final ArrayList<Node> blocks = new ArrayList<>();
     private final Pane appRoot = new Pane();
     private final Pane gameRoot = new Pane();
-    private final Pane UI = new Pane();
     private Node ball;
     
     private Point2D ballVelocity = new Point2D(0, 0);
@@ -85,7 +84,7 @@ public class Project250 extends Application {
                 gameRoot.setLayoutX(-(offset-640));
             }
         });
-        appRoot.getChildren().addAll( showBackground,gameRoot, UI);
+        appRoot.getChildren().addAll( showBackground,gameRoot);
     }
     private void update(){
         if (isPressed(KeyCode.W) && ball.getTranslateY() >= 5){
@@ -180,6 +179,8 @@ public class Project250 extends Application {
         scene.setOnKeyReleased(event -> keys.put(event.getCode(), false));
         primaryStage.setTitle("WhatGoesUP V2.0");
         primaryStage.setScene(scene);
+        primaryStage.setFullScreen(Boolean.TRUE);
+       // primaryStage.setMinHeight(levelHeight);
         primaryStage.show();
         AnimationTimer tiktok = new AnimationTimer() {
             @Override
@@ -189,26 +190,9 @@ public class Project250 extends Application {
         };
         tiktok.start();
     }
-    public static void main(String[] args) {
+    public static void main() {
         
-//     JButton b1=new JButton("WOW");
-//     JFrame frame=new JFrame();
-//     frame.setSize(1280, 720);
-//     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
-//     frame.add(b1);
-//     frame.setVisible(true);
-//     b1.addActionListener(new ActionListener() {
-//         
-//         @Override
-//         public void actionPerformed(ActionEvent e) {
-//                 launch(args);
-//         }
-//        });
-//        int x;
-//        Scanner scan=new Scanner(System.in);
-//        x=scan.nextInt();
-        CallMEByYourName.main(args);
-//        launch(args);
+        launch( );
     }
 
     
